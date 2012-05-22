@@ -67,8 +67,8 @@
 
 // TODO: Integrate row windowing
 // Windowing parameters
-#define WINDOW_START_COL                (0)
-#define WINDOW_END_COL                  (160)
+#define WINDOW_START_COL                (4)
+#define WINDOW_END_COL                  (156)
 #define WINDOW_START_ROW                (0)
 #define WINDOW_END_ROW                  (120)
 
