@@ -48,8 +48,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cam.h"
-//#include "sys_clock.h" // Pick either sys_clock or stopwatch for timestamps
-//#include "stopwatch.h"
+#include "stopwatch.h"
 #include "led.h"
 
 // TODO: Read native image size from device driver, then calculate image size
@@ -262,6 +261,18 @@ void camStart(void) {
 
 }
 
+void camPause(void) {
+
+    _T7IF = 1;
+
+}
+
+void camStop(void) {
+
+    DisableIntT7;
+
+}
+
 // Measures camera timing parameters
 void camRunCalib(void) {
 
@@ -328,6 +339,7 @@ unsigned char camHasNewFrame(void) {
 
 CamRow camGetRow(void) {
 
+    has_new_row = 0;
     return latest_row;
 
 }
@@ -369,8 +381,7 @@ void camCaptureRow(void) {
 
     // Fill and timestamp row buffer
     row_getter(row_buff->pixels, NATIVE_IMAGE_COLS);
-    //row_buff->timestamp = sclockGetTicks();
-    //row_buff->timestamp = swatchToc();
+    row_buff->timestamp = swatchToc();
     row_buff->row_num = cntrRead(row_counter);
 
     CRITICAL_SECTION_END;
