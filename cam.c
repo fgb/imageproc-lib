@@ -49,7 +49,6 @@
 #include <string.h>
 #include "cam.h"
 #include "stopwatch.h"
-#include "led.h"
 
 // TODO: Read native image size from device driver, then calculate image size
 // after subsampling
@@ -89,7 +88,7 @@
 // Amount of time before an event to trigger timer
 #define ROW_ROW_OFFSET                  (6) // 384 cycles
 #define VSYNC_ROW_OFFSET                (6) // 384 cycles
-#define ROW_VSYNC_OFFSET                (8) // 512 cycles
+#define ROW_VSYNC_OFFSET                (10) // 640 cycles
 #define VSYNC_VSYNC_OFFSET              (8) // 512 cycles
 
 #define CAM_POOL_SIZE                   (1) // 4 frames shared with system
@@ -258,12 +257,6 @@ void camStart(void) {
     cntrSet(frame_counter, 0);  // Reset frame counter
     ct_state = CT_WAIT_ROW;     // Wait for first row
     EnableIntT7;                // Re-enable interrupt
-
-}
-
-void camPause(void) {
-
-    _T7IF = 1;
 
 }
 
