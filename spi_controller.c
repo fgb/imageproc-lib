@@ -77,8 +77,8 @@
 #define SPIC1_RX_BUFF_LEN       (128) // Radio buffer is 128 bytes
 #define SPIC1_TX_BUFF_LEN       (128)
 
-#define SPIC2_RX_BUFF_LEN       (264) // Flash page is 264/528 bytes
-#define SPIC2_TX_BUFF_LEN       (264) // Currently not in use
+#define SPIC2_RX_BUFF_LEN       (528) // Flash page is 264/528 bytes
+#define SPIC2_TX_BUFF_LEN       (528) // Currently not in use
 
 #define US_TO_TICKS(X)          ((X*10)/16) // Microseconds to cycles with 64:1 prescale
 
