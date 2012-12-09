@@ -7,9 +7,6 @@
 #ifndef __INTERRUPTS_H
 #define __INTERRUPTS_H
 
-void SetupInterrupts(void);
-
-void __attribute__((interrupt, no_auto_psv)) _INT0Interrupt(void);
 void __attribute__((__interrupt__, no_auto_psv)) _AddressError(void);
 
 #endif // __INTERRUPTS_H
