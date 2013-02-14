@@ -95,7 +95,7 @@ static unsigned int radioSetStateOff(void);
 // =========== Public functions ===============================================
 
 // Initialize radio software and hardware
-void radioInit(unsigned int tx_queue_length, unsigned int rx_queue_length, 
+void radioInit(unsigned int tx_queue_length, unsigned int rx_queue_length,
     unsigned char cs) {
 
     RadioConfiguration conf;
@@ -391,7 +391,7 @@ void trxCallback(unsigned int irq_cause) {
 
         // Beginning reception process
         if(irq_cause == RADIO_RX_START) {
-            LED_3 = 1;
+            LED_GREEN = 1;
             status.state = STATE_RX_BUSY;
         }
 

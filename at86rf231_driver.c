@@ -110,6 +110,7 @@ void trxSetup(unsigned char cs)
 {
     spi_cs = cs;
 
+    // SPI setup
     setupSPI();     // Set up SPI com port
     spicSetupChannel1();
     spic1SetCallback(&trxSpiCallback);  // Configure callback for spi interrupts
@@ -119,7 +120,6 @@ void trxSetup(unsigned char cs)
     trxWriteSubReg(SR_SLOTTED_OPERATION, 0);  // Disable slotted operation
     trxWriteSubReg(SR_TX_AUTO_CRC_ON, 1); // Enable automatic TX CRC
     trxWriteSubReg(SR_CLKM_CTRL, CLKM_NO_CLOCK); // No clock on CLKM pin
-    trxWriteSubReg(SR_IRQ_MASK_MODE, IRQ_MASK_MODE_ON); // Turn off interrupt polling
     trxWriteSubReg(SR_MAX_CSMA_RETRIES, DEFAULT_CSMA_RETRIES); // Set CSMA attempts
     trxWriteSubReg(SR_MAX_FRAME_RETRIES, DEFAULT_FRAME_RETRIES); // Set resend attempts
     trxWriteSubReg(SR_RX_SAFE_MODE, 0); // Disable frame buffer protection
