@@ -14,6 +14,6 @@ void __attribute__((__interrupt__, no_auto_psv)) _AddressError(void)
 
         while (1)
         {
-            LED_2 = ~LED_2; delay_ms(50);
+            LED_1 = ~LED_1; delay_ms(50);
         }
 }
